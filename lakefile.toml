@@ -1,0 +1,6 @@
+name = "wow-ii-314"
+
+[[require]]
+name = "formal_conjectures"
+git = "https://github.com/google-deepmind/formal-conjectures.git"
+rev = "b2e608fc52d765510915a244bb69b1a2741acc3c"
