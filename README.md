@@ -214,10 +214,13 @@ Let $D$ be a minimal total dominating set.
 > **Lemma**. For every connected component $C$, $D$ has a minimal total dominating set of $C$.
 
 So $D$ locally decomposes as:
+
 $$
 D=D_{1}\sqcup D_{2}\sqcup\dots\sqcup D_{k}
 $$
+
 This gives:
+
 $$
 |D|=|D_{1}|+|D_{2}|+\dots+|D_{k}|
 $$
