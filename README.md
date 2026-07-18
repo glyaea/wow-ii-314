@@ -1,13 +1,16 @@
-[Written on the Wall II](http://cms.dt.uh.edu/faculty/delavinae/research/wowII) is a composition of conjectures.
-Here is a proof outline of Conjecture 314 and a generalisation thereof.
+[Written on the Wall II](http://cms.dt.uh.edu/faculty/delavinae/research/wowII) is a collection of conjectures.
 
-Claim 1 was [Lean-verified](https://github.com/glyaea/wow-ii-314/blob/7b35f1252e4aaae3c787faf8091f9c7cd4edc41f/solution.lean).
+> **Conjecture 314**. Every finite, simple, connected, triangle-free, induced-P5-free graph is well-totally-dominated.
+
+Conjecture 314 remained unsolved for 19 years.
+Here, I outline a proof of Conjecture 314 and a generalisation thereof.
+The former also has a formal [Lean proof](https://github.com/glyaea/wow-ii-314/blob/7b35f1252e4aaae3c787faf8091f9c7cd4edc41f/solution.lean).
 
 ---
 
 Consider finite simple graphs.
 
-> **Claim 1**. Connected, triangle-free, induced-P5-free graphs are well-totally-dominated.
+> **Claim 1**. Every connected, triangle-free, induced-P5-free graph is well-totally-dominated.
 
 Fix such a graph.
 
@@ -203,12 +206,12 @@ Since `q` must connect with `U - V`, `q` must pair with `V`:
 
 Notably, Claim 1 can be generalised to disconnected graphs.
 
-> **Claim 2**. Triangle-free induced-P5-free graphs are well-totally-dominated.
+> **Claim 2**. Every triangle-free, induced-P5-free graph is well-totally-dominated.
 
 Fix such a graph of $k$ connected components.
 Let $D$ be a minimal total dominating set.
 
-> **Lemma**. For each connected component $C$, $D$ has a minimal total dominating set of $C$.
+> **Lemma**. For every connected component $C$, $D$ has a minimal total dominating set of $C$.
 
 So $D$ locally decomposes as:
 $$
