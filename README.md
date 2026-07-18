@@ -3,7 +3,7 @@
 > **Conjecture 314**. Every finite, simple, connected, triangle-free, induced-P5-free graph is well-totally-dominated.
 
 Conjecture 314 remained unsolved for 19 years.
-Here, I outline a proof of Conjecture 314 and a generalisation thereof.
+Here, I sketch a proof of Conjecture 314 and a generalisation thereof.
 The former also has a formal [Lean proof](https://github.com/glyaea/wow-ii-314/blob/7b35f1252e4aaae3c787faf8091f9c7cd4edc41f/solution.lean).
 
 ---
