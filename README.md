@@ -203,7 +203,7 @@ Since `q` must connect with `U - V`, `q` must pair with `V`:
 
 Notably, Claim 1 can be generalised to disconnected graphs.
 
-**Claim 2**. Triangle-free induced-P5-free graphs are well-totally-dominated.
+> **Claim 2**. Triangle-free induced-P5-free graphs are well-totally-dominated.
 
 Fix such a graph of $k$ connected components.
 Let $D$ be a minimal total dominating set.
