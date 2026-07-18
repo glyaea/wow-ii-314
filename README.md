@@ -17,7 +17,7 @@ Fix such a graph.
 
 > **Lemma**. A node is reachable from any other in $3$ or fewer hops.
 
-> **Lemma**. A minimal total dominating set of size $3$ must form a chain.
+> **Lemma**. A minimal total dominating set of size $3$ forms a chain.
 
 > **Claim 1.1**. No minimal total dominating set can have $1$ node or fewer.
 
@@ -201,14 +201,14 @@ Since `q` must connect with `U - V`, `q` must pair with `V`:
 ```
 `p - A - B - C - q` is an induced P5, which is banned.
 
-Notably, Claim 1 can be generalised to drop connectedness.
+Notably, Claim 1 can be generalised to disconnected graphs.
 
 **Claim 2**. Triangle-free induced-P5-free graphs are well-totally-dominated.
 
 Fix such a graph of $k$ connected components.
-Let $D$ be a minimal total dominating set of.
+Let $D$ be a minimal total dominating set.
 
-> **Lemma**. For each connected component $C$, $D$ must have a minimal total dominating set of $C$.
+> **Lemma**. For each connected component $C$, $D$ has a minimal total dominating set of $C$.
 
 So $D$ locally decomposes as:
 $$
