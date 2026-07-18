@@ -1,4 +1,4 @@
-[Written on the Wall II](http://cms.dt.uh.edu/faculty/delavinae/research/wowII) is a collection of conjectures.
+[Written on the Wall II](http://cms.dt.uh.edu/faculty/delavinae/research/wowII) contains conjectures.
 
 > **Conjecture 314**. Every finite, simple, connected, triangle-free, induced-P5-free graph is well-totally-dominated.
 
