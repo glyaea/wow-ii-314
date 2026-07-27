@@ -1,0 +1,429 @@
+\documentclass{amsart}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage{tikz}
+
+\newcommand{\edge}[2]{\draw[graph edge] (#1) -- (#2)}
+\newcommand{\vertex}[3]{\node[graph vertex] (#1) at (#2) {$#3$}}
+\newenvironment{graphdiagram}{\par\centering\begin{tikzpicture}[scale=0.5]}{\end{tikzpicture}\par}
+\theoremstyle{definition}
+\newtheorem{claim}{Claim}
+\newtheorem*{lemma*}{Lemma}
+\tikzset{
+	graph edge/.style={},
+	graph vertex/.style={inner sep=0pt, minimum size=12pt}
+}
+
+\title{Well-Total Domination of $K_{3}$-Free, Induced-$P_{5}$-Free Graphs}
+\author{Gregory Lim}
+\date{}
+
+\begin{document}
+
+\begin{abstract}
+	We show that finite, simple, $K_{3}$-free, induced-$P_{5}$-free graphs are well-totally-dominated.
+	This answers Conjecture 314 from Written on the Wall II.
+\end{abstract}
+
+\maketitle
+
+Let $G$ be a finite, simple, connected, $K_{3}$-free, induced-$P_{5}$-free graph.
+
+\begin{claim}
+Each minimal total dominating set of $G$ has size at least two.
+\end{claim}
+
+\begin{proof}
+% Let $X\subseteq V(G)$ be minimal total dominating, and $v\in X$.
+% Then, there exists $v'\in X$ such that $v\neq v'$.
+Let $X$ be a minimal total dominating set of $G$,
+and $v$ be a vertex in $X$.
+Then, there exists a distinct vertex $v'$ in $X$.
+\end{proof}
+
+\begin{lemma*}
+Let $X$ be a minimal total dominating set of $G$,
+and $v$ be a vertex in $X$.
+Then, $v$ has a \textit{private neighbour} adjacent to no vertex in $X$ but $v$.
+% Let $X\subseteq V(G)$ be minimal total dominating,
+% and $v\in X$.
+% Then, there exists \textit{private neighbour} $v'\in V(G)$ such that $v'$ is adjacent to $v$, and $v'$ is adjacent to no other vertex in $X$. % wtf is "no other"
+\end{lemma*}
+
+\begin{proof}
+Suppose not.
+Then, vertex set $X\setminus\{v\}$ totally dominates $G$.
+This contradicts the minimality of $X$.
+\end{proof}
+
+\begin{lemma*}
+Let $X$ be a minimal total dominating set of $G$ of size at least four, and subgraph $G[X]$ be connected.
+Then, exactly four vertices in $X$ induce a $C_{4}$, $P_{4}$, or $K_{1,3}$.
+% Let $X\subseteq V(G)$ be minimal total dominating, and $\abs{X}\geq 4$, and $G[X]$ be connected.
+% Then, there exists $S\subseteq X$ with $\abs{S}=4$ such that either $G[S]\cong C_{4}$, or $G[S]\cong P_{4}$, or $G[S]\cong K_{1,3}$.
+\end{lemma*}
+
+\begin{proof}
+If some vertex in $X$ has at least three neighbours, since any three of them are pairwise nonadjacent, exactly four vertices induce a $K_{1,3}$.
+Otherwise, since $G[X]$ is connected, exactly four vertices induce a $C_{4}$ or $P_{4}$.
+% If $\abs{N(v)\cap X}\leq 2$ for each $v\in X$, since $G[X]$ is connected, there exists $S\subseteq X$ with $\abs{S}=4$ such that either $G[S]\cong C_{4}$, or $G[S]\cong P_{4}$.
+% Otherwise, since three vertices of $S$ are pairwise nonadjacent neighbours of the fourth, there exists $S\subseteq X$ with $\abs{S}=4$ such that $G[S]\cong K_{1,3}$.
+\end{proof}
+
+\begin{claim}
+Each minimal total dominating set has size at most three.
+\end{claim}
+
+\begin{proof}
+Let $X$ be a minimal total dominating set of size at least four.
+Then, $G[X]$ is either connected or disconnected.
+Suppose $G[X]$ is connected.
+Let $S=\{A,B,C,D\}$ be a subset of $X$.
+Suppose $S$ induces a $C_{4}$.
+Let $w$ be the private neighbour of $A$, $x$ be the private neighbour of $B$, and $z$ be the private neighbour of $D$.
+Then, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.5,1.2}{A};
+	\vertex{B}{0,1.2}{B};
+	\vertex{C}{1.5,-0.3}{C};
+	\vertex{D}{0,-0.3}{D};
+	\vertex{w}{3,1.2}{w};
+	\vertex{x}{0,2.7}{x};
+	\vertex{z}{0,-1.8}{z};
+	\edge{A}{B};
+	\edge{A}{C};
+	\edge{A}{w};
+	\edge{B}{D};
+	\edge{B}{x};
+	\edge{C}{D};
+	\edge{D}{z};
+\end{graphdiagram}
+
+Clearly, $w$ is either adjacent or not adjacent to $z$.
+If $w$ is not adjacent to $z$, then $w-A-B-D-z$ is an induced $P_{5}$.
+Otherwise, we have:
+% if $w$ is adjacent to $z$ and $x$ is adjacent to neither $w$ nor $z$, we have
+
+\begin{graphdiagram}
+	\vertex{A}{1.5,1.2}{A};
+	\vertex{B}{0,1.2}{B};
+	\vertex{C}{1.5,-0.3}{C};
+	\vertex{D}{0,-0.3}{D};
+	\vertex{w}{3,1.2}{w};
+	\vertex{x}{0,2.7}{x};
+	\vertex{z}{0,-1.8}{z};
+	\edge{A}{B};
+	\edge{A}{C};
+	\edge{A}{w};
+	\edge{B}{D};
+	\edge{B}{x};
+	\edge{C}{D};
+	\edge{D}{z};
+	\draw[graph edge] (w) .. controls (3,-0.5) and (1.7,-1.8) .. (z);
+\end{graphdiagram}
+
+Since $G$ is $K_{3}$-free, $x$ is not adjacent to $w$ and $z$.
+Thus, $x$ is either adjacent to $w$, $z$, or neither.
+If $x$ is adjacent to neither $w$ nor $z$, then $x-B-A-w-z$ is an induced $P_{5}$.
+Otherwise, if $x$ is adjacent to $w$,
+we have
+
+\begin{graphdiagram}
+	\vertex{A}{1.5,1.2}{A};
+	\vertex{B}{0,1.2}{B};
+	\vertex{C}{1.5,-0.3}{C};
+	\vertex{D}{0,-0.3}{D};
+	\vertex{w}{3,1.2}{w};
+	\vertex{x}{0,2.7}{x};
+	\vertex{z}{0,-1.8}{z};
+	\edge{A}{B};
+	\edge{A}{C};
+	\edge{A}{w};
+	\edge{B}{D};
+	\edge{B}{x};
+	\edge{C}{D};
+	\edge{D}{z};
+	\edge{w}{x};
+	\draw[graph edge] (w) .. controls (3,-0.5) and (1.7,-1.8) .. (z);
+\end{graphdiagram}
+
+in which $x-w-z-D-C$ is an induced $P_{5}$.
+Otherwise, we have
+
+\begin{graphdiagram}
+	\vertex{A}{1.5,1.2}{A};
+	\vertex{B}{0,1.2}{B};
+	\vertex{C}{1.5,-0.3}{C};
+	\vertex{D}{0,-0.3}{D};
+	\vertex{w}{3,1.2}{w};
+	\vertex{x}{0,2.7}{x};
+	\vertex{z}{0,-1.8}{z};
+	\edge{A}{B};
+	\edge{A}{C};
+	\edge{A}{w};
+	\edge{B}{D};
+	\edge{B}{x};
+	\edge{C}{D};
+	\edge{D}{z};
+	\draw[graph edge] (w) .. controls (3,-0.5) and (1.7,-1.8) .. (z);
+	\draw[graph edge] (x) .. controls (-1.8,1.5) and (-1.8,-1) .. (z);
+\end{graphdiagram}
+
+in which $x-z-w-A-C$ is an induced $P_{5}$.
+Suppose $S$ induces a $P_{4}$.
+Without loss of generality, let $z$ be the private neighbour of $D$.
+Then, we have
+
+\begin{graphdiagram}
+	\vertex{A}{0,0}{A};
+	\vertex{B}{1.4,0}{B};
+	\vertex{C}{2.8,0}{C};
+	\vertex{D}{4.2,0}{D};
+	\vertex{z}{5.6,0}{z};
+	\edge{A}{B};
+	\edge{B}{C};
+	\edge{C}{D};
+	\edge{D}{z};
+\end{graphdiagram}
+
+which is an induced $P_{5}$.
+Suppose $S$ induces a $K_{1,3}$.
+Let $x$ be the private neighbour of $B$ and $z$ be the private neighbour of $D$. Then, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{0,0}{A};
+	\vertex{B}{0,1.3}{B};
+	\vertex{C}{1.3,0}{C};
+	\vertex{D}{0,-1.3}{D};
+	\vertex{x}{0,2.6}{x};
+	\vertex{z}{0,-2.6}{z};
+	\edge{A}{B};
+	\edge{A}{C};
+	\edge{A}{D};
+	\edge{B}{x};
+	\edge{D}{z};
+\end{graphdiagram}
+
+Clearly, $x$ is either adjacent or not adjacent to $z$.
+If $x$ is not adjacent to $z$, then $x-B-A-D-z$ is an induced $P_{5}$.
+Otherwise, we have
+
+\begin{graphdiagram}
+	\vertex{A}{0,0}{A};
+	\vertex{B}{0,1.3}{B};
+	\vertex{C}{1.3,0}{C};
+	\vertex{D}{0,-1.3}{D};
+	\vertex{x}{0,2.6}{x};
+	\vertex{z}{0,-2.6}{z};
+	\edge{A}{B};
+	\edge{A}{C};
+	\edge{A}{D};
+	\edge{B}{x};
+	\edge{D}{z};
+	\draw[graph edge] (x) .. controls (-2.1,1.8) and (-2.1,-1.8) .. (z);
+\end{graphdiagram}
+
+in which $x-z-D-A-C$ is an induced $P_{5}$. % how about x-z-D-A-B? could you have chosen to mention that instead?
+
+Suppose $G[X]$ is disconnected.
+Then, $G[X]$ has two or more connected components and each component has at least one edge.
+Let $A-B,C-D$ be edges of distinct components of $G[X]$.
+Then, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{0,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{D}{5.6,0}{D};
+	\edge{A}{B};
+	\edge{C}{D};
+\end{graphdiagram}
+
+Without loss of generality, consider the distance between $A$ and $C$.
+Since $G$ is connected and induced-$P_{5}$-free, the distance is at most three.
+Since $A\neq C$, the distance is not zero.
+Since $A$ is not adjacent to $C$, the distance is not one.
+Thus, the distance is either two or three.
+Suppose the distance is two.
+Then, there exists a vertex adjacent to $A$ and $C$.
+Let $\alpha$ be such a vertex.
+Then, we have
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{0,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{D}{5.6,0}{D};
+	\vertex{alpha}{2.8,0}{\alpha};
+	\edge{A}{B};
+	\edge{A}{alpha};
+	\edge{alpha}{C};
+	\edge{C}{D};
+\end{graphdiagram}
+
+which is an induced $P_{5}$.
+Otherwise, there exists a path of length three between $A$ and $C$.
+Let $A-\alpha-\beta-C$ be such a path.
+Then, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.2,0}{A};
+	\vertex{B}{0,0}{B};
+	\vertex{C}{4.8,0}{C};
+	\vertex{D}{6,0}{D};
+	\vertex{alpha}{2.4,0}{\alpha};
+	\vertex{beta}{3.6,0}{\beta};
+	\edge{A}{B};
+	\edge{A}{alpha};
+	\edge{alpha}{beta};
+	\edge{beta}{C};
+	\edge{C}{D};
+\end{graphdiagram}
+
+Clearly, $B$ is either adjacent or not adjacent to $\beta$.
+If $B$ is not adjacent to $\beta$, then $B-A-\alpha-\beta-C$ is an induced $P_{5}$.
+Otherwise, we have
+
+\begin{graphdiagram}
+	\vertex{A}{1.2,0}{A};
+	\vertex{B}{0,0}{B};
+	\vertex{C}{4.8,0}{C};
+	\vertex{D}{6,0}{D};
+	\vertex{alpha}{2.4,0}{\alpha};
+	\vertex{beta}{3.6,0}{\beta};
+	\edge{A}{B};
+	\edge{A}{alpha};
+	\edge{C}{D};
+	\edge{C}{beta};
+	\edge{alpha}{beta};
+	\draw[graph edge] (B) .. controls (1,-1.4) and (2.6,-1.4) .. (beta);
+\end{graphdiagram}
+
+in which $A-B-\beta-C-D$ is an induced $P_{5}$.
+\end{proof}
+
+\begin{claim}
+Minimal total dominating sets of sizes two and three cannot coexist.
+\end{claim}
+
+\begin{proof}
+Let $U-V$ be a minimal total dominating set of $G$ of size two, $A-B-C$ be a minimal total dominating set of $G$ of size three, $w$ be the private neighbour of $A$, and $y$ be the private neighbour of $C$.
+Then, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{2.8,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{w}{0,0}{w};
+	\vertex{y}{5.6,0}{y};
+	\edge{A}{B};
+	\edge{A}{w};
+	\edge{B}{C};
+	\edge{C}{y};
+\end{graphdiagram}
+
+Without loss of generality, suppose $A$ is adjacent to $U$.
+Then, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{2.8,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{w}{0,0}{w};
+	\vertex{y}{5.6,0}{y};
+	\vertex{U}{1.4,-1.4}{U};
+	\edge{A}{B};
+	\edge{A}{w};
+	\edge{A}{U};
+	\edge{B}{C};
+	\edge{C}{y};
+\end{graphdiagram}
+
+Since $U-V$ totally dominates $w$ and $w$ must be adjacent to $V$, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{2.8,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{w}{0,0}{w};
+	\vertex{y}{5.6,0}{y};
+	\vertex{U}{1.4,-1.4}{U};
+	\vertex{V}{0,-1.4}{V};
+	\edge{A}{B};
+	\edge{A}{w};
+	\edge{A}{U};
+	\edge{B}{C};
+	\edge{C}{y};
+	\edge{U}{V};
+	\edge{w}{V};
+\end{graphdiagram}
+
+Since $U-V$ totally dominates $B$ and $B$ must be adjacent to $V$, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{2.8,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{w}{0,0}{w};
+	\vertex{y}{5.6,0}{y};
+	\vertex{U}{1.4,-1.4}{U};
+	\vertex{V}{0,-1.4}{V};
+	\edge{A}{B};
+	\edge{A}{w};
+	\edge{A}{U};
+	\edge{B}{C};
+	\edge{C}{y};
+	\edge{U}{V};
+	\edge{w}{V};
+	\draw[graph edge] (B) .. controls (2.8,-2.3) and (0,-2.3) .. (V);
+\end{graphdiagram}
+
+Since $U-V$ totally dominates $C$ and $C$ must be adjacent to $U$, we have:
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{2.8,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{w}{0,0}{w};
+	\vertex{y}{5.6,0}{y};
+	\vertex{U}{1.4,-1.4}{U};
+	\vertex{V}{0,-1.4}{V};
+	\edge{A}{B};
+	\edge{A}{w};
+	\edge{A}{U};
+	\edge{B}{C};
+	\edge{C}{y};
+	\edge{U}{V};
+	\edge{w}{V};
+	\draw[graph edge] (B) .. controls (2.8,-2.3) and (0,-2.3) .. (V);
+	\draw[graph edge] (C) .. controls (4.2,-2.8) and (1.4,-2.8) .. (U);
+\end{graphdiagram}
+
+Since $U-V$ totally dominates $y$ and $y$ must be adjacent to $V$, we have
+
+\begin{graphdiagram}
+	\vertex{A}{1.4,0}{A};
+	\vertex{B}{2.8,0}{B};
+	\vertex{C}{4.2,0}{C};
+	\vertex{w}{0,0}{w};
+	\vertex{y}{5.6,0}{y};
+	\vertex{U}{1.4,-1.4}{U};
+	\vertex{V}{0,-1.4}{V};
+	\edge{A}{B};
+	\edge{A}{w};
+	\edge{A}{U};
+	\edge{B}{C};
+	\edge{C}{y};
+	\edge{U}{V};
+	\edge{w}{V};
+	\draw[graph edge] (B) .. controls (2.8,-2.3) and (0,-2.3) .. (V);
+	\draw[graph edge] (C) .. controls (4.2,-2.8) and (1.4,-2.8) .. (U);
+	\draw[graph edge] (y) .. controls (5.6,-3.6) and (0,-3.6) .. (V);
+\end{graphdiagram}
+
+in which $w-A-B-C-y$ is an induced $P_{5}$.
+\end{proof}
+
+\end{document}
