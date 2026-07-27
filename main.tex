@@ -35,40 +35,40 @@ Each minimal total dominating set of $G$ has size at least two.
 \end{claim}
 
 \begin{proof}
-% Let $X\subseteq V(G)$ be minimal total dominating, and $v\in X$.
-% Then, there exists $v'\in X$ such that $v\neq v'$.
-Let $X$ be a minimal total dominating set of $G$,
-and $v$ be a vertex in $X$.
-Then, there exists a distinct vertex $v'$ in $X$.
+% Let $M\subseteq V(G)$ be minimal total dominating, and $v\in M$.
+% Then, there exists $v'\in M$ such that $v\neq v'$.
+Let $M$ be a minimal total dominating set of $G$,
+and $v$ be a vertex in $M$.
+Then, there exists a distinct vertex $v'$ in $M$.
 \end{proof}
 
 \begin{lemma*}
-Let $X$ be a minimal total dominating set of $G$,
-and $v$ be a vertex in $X$.
-Then, $v$ has a \textit{private neighbour} adjacent to no vertex in $X$ but $v$.
-% Let $X\subseteq V(G)$ be minimal total dominating,
-% and $v\in X$.
-% Then, there exists \textit{private neighbour} $v'\in V(G)$ such that $v'$ is adjacent to $v$, and $v'$ is adjacent to no other vertex in $X$. % wtf is "no other"
+Let $M$ be a minimal total dominating set of $G$,
+and $v$ be a vertex in $M$.
+Then, $v$ has a \textit{private neighbour} adjacent to no vertex in $M$ but $v$.
+% Let $M\subseteq V(G)$ be minimal total dominating,
+% and $v\in M$.
+% Then, there exists \textit{private neighbour} $v'\in V(G)$ such that $v'$ is adjacent to $v$, and $v'$ is adjacent to no other vertex in $M$. % wtf is "no other"
 \end{lemma*}
 
 \begin{proof}
 Suppose not.
-Then, vertex set $X\setminus\{v\}$ totally dominates $G$.
-This contradicts the minimality of $X$.
+Then, vertex set $M\setminus\{v\}$ totally dominates $G$.
+This contradicts the minimality of $M$.
 \end{proof}
 
 \begin{lemma*}
-Let $X$ be a minimal total dominating set of $G$ of size at least four, and subgraph $G[X]$ be connected.
-Then, exactly four vertices in $X$ induce a $C_{4}$, $P_{4}$, or $K_{1,3}$.
-% Let $X\subseteq V(G)$ be minimal total dominating, and $\abs{X}\geq 4$, and $G[X]$ be connected.
-% Then, there exists $S\subseteq X$ with $\abs{S}=4$ such that either $G[S]\cong C_{4}$, or $G[S]\cong P_{4}$, or $G[S]\cong K_{1,3}$.
+Let $M$ be a minimal total dominating set of $G$ of size at least four, and subgraph $G[M]$ be connected.
+Then, exactly four vertices in $M$ induce a $C_{4}$, $P_{4}$, or $K_{1,3}$.
+% Let $M\subseteq V(G)$ be minimal total dominating, and $\abs{M}\geq 4$, and $G[M]$ be connected.
+% Then, there exists $S\subseteq M$ with $\abs{S}=4$ such that either $G[S]\cong C_{4}$, or $G[S]\cong P_{4}$, or $G[S]\cong K_{1,3}$.
 \end{lemma*}
 
 \begin{proof}
-If some vertex in $X$ has at least three neighbours, since any three of them are pairwise nonadjacent, exactly four vertices induce a $K_{1,3}$.
-Otherwise, since $G[X]$ is connected, exactly four vertices induce a $C_{4}$ or $P_{4}$.
-% If $\abs{N(v)\cap X}\leq 2$ for each $v\in X$, since $G[X]$ is connected, there exists $S\subseteq X$ with $\abs{S}=4$ such that either $G[S]\cong C_{4}$, or $G[S]\cong P_{4}$.
-% Otherwise, since three vertices of $S$ are pairwise nonadjacent neighbours of the fourth, there exists $S\subseteq X$ with $\abs{S}=4$ such that $G[S]\cong K_{1,3}$.
+If some vertex in $M$ has at least three neighbours, since any three of them are pairwise nonadjacent, exactly four vertices induce a $K_{1,3}$.
+Otherwise, since $G[M]$ is connected, exactly four vertices induce a $C_{4}$ or $P_{4}$.
+% If $\abs{N(v)\cap M}\leq 2$ for each $v\in M$, since $G[M]$ is connected, there exists $S\subseteq M$ with $\abs{S}=4$ such that either $G[S]\cong C_{4}$, or $G[S]\cong P_{4}$.
+% Otherwise, since three vertices of $S$ are pairwise nonadjacent neighbours of the fourth, there exists $S\subseteq M$ with $\abs{S}=4$ such that $G[S]\cong K_{1,3}$.
 \end{proof}
 
 \begin{claim}
@@ -76,10 +76,10 @@ Each minimal total dominating set has size at most three.
 \end{claim}
 
 \begin{proof}
-Let $X$ be a minimal total dominating set of size at least four.
-Then, $G[X]$ is either connected or disconnected.
-Suppose $G[X]$ is connected.
-Let $S=\{A,B,C,D\}$ be a subset of $X$.
+Let $M$ be a minimal total dominating set of size at least four.
+Then, $G[M]$ is either connected or disconnected.
+Suppose $G[M]$ is connected.
+Let $S=\{A,B,C,D\}$ be a subset of $M$.
 Suppose $S$ induces a $C_{4}$.
 Let $w$ be the private neighbour of $A$, $x$ be the private neighbour of $B$, and $z$ be the private neighbour of $D$.
 Then, we have:
@@ -227,9 +227,9 @@ Otherwise, we have
 
 in which $x-z-D-A-C$ is an induced $P_{5}$. % how about x-z-D-A-B? could you have chosen to mention that instead?
 
-Suppose $G[X]$ is disconnected.
-Then, $G[X]$ has two or more connected components and each component has at least one edge.
-Let $A-B,C-D$ be edges of distinct components of $G[X]$.
+Suppose $G[M]$ is disconnected.
+Then, $G[M]$ has two or more connected components and each component has at least one edge.
+Let $A-B,C-D$ be edges of distinct components of $G[M]$.
 Then, we have:
 
 \begin{graphdiagram}
